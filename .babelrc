@@ -1,0 +1,16 @@
+{
+  "presets": [
+    [
+      "@babel/preset-env", // 转es5
+      {
+        "targets": {
+          "browsers": ["ie 11", "chrome 64"]
+        },
+        "useBuiltIns": "usage",
+        "corejs": 3
+      }
+    ],
+    "@babel/preset-react", // 支持jsx
+    "@babel/preset-typescript" // 支持ts
+  ]
+}
