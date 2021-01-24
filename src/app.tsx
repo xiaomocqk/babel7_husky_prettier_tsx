@@ -1,9 +1,9 @@
-import React from 'react'
+import React from 'react';
 
-export default function App () {
-    return (
-        <>
-            <div>react app</div>
-        </>
-    )
+export default function App() {
+  return (
+    <>
+      <div className="abc">react app1</div>
+    </>
+  );
 }
