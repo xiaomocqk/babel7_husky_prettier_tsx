@@ -1,15 +1,16 @@
 {
+  "root": true,
   "extends": ["eslint:recommended", "plugin:react/recommended"],
   "parser": "@typescript-eslint/parser",
-  "plugins": ["typescript"],
+  "plugins": ["typescript", "simple-import-sort"],
   "env": {
     "browser": true,
-    "commonjs": true,
     "node": true,
-    "es6": true
+    "es6": true,
+    "commonjs": false
   },
   "parserOptions": {
-    "ecmaVersion": 2018,
+    "ecmaVersion": 2021,
     "sourceType": "module",
     "ecmaFeatures": {
       "jsx": true
@@ -17,6 +18,20 @@
   },
   "rules": {
     "no-console": "warn",
-    "no-unused-vars": "warn"
+    "no-unused-vars": "error",
+    "semi":"error",
+    "sort-keys":"warn",
+    "sort-vars": "warn",
+    "quotes":"warn",
+    "sort-imports": "error",
+    "eqeqeq": "error",
+    "simple-import-sort/imports": "error",
+    "simple-import-sort/exports": "error"
+  },
+  "ignorePatterns": ["node_modules", "lib/**", "dist/**"],
+  "settings": {
+    "react": {
+      "version": "16.8"
+    }
   }
 }
