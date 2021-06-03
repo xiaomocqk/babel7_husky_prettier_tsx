@@ -2,7 +2,8 @@
   "root": true,
   "extends": ["eslint:recommended", "plugin:react/recommended"],
   "parser": "@typescript-eslint/parser",
-  "plugins": ["typescript", "simple-import-sort"],
+  "plugins": ["typescript", "simple-import-sort", "import", "react-hooks"],
+  "ignorePatterns": ["node_modules", "lib/**", "dist/**"],
   "env": {
     "browser": true,
     "node": true,
@@ -16,22 +17,62 @@
       "jsx": true
     }
   },
-  "rules": {
-    "no-console": "warn",
-    "no-unused-vars": "error",
-    "semi":"error",
-    "sort-keys":"warn",
-    "sort-vars": "warn",
-    "quotes":"warn",
-    "sort-imports": "error",
-    "eqeqeq": "error",
-    "simple-import-sort/imports": "error",
-    "simple-import-sort/exports": "error"
-  },
-  "ignorePatterns": ["node_modules", "lib/**", "dist/**"],
   "settings": {
     "react": {
-      "version": "16.8"
+      "version": "17.0"
     }
+  },
+  "rules": {
+    /* 样式相关 */
+    "quotes": [
+      "warn",
+      "single",
+      { "allowTemplateLiterals": true, "avoidEscape": true }
+    ],
+    "semi": "warn",
+    "indent": ["warn", 2],
+    "spaced-comment": "warn",
+    "jsx-quotes": ["warn", "prefer-double"],
+    // 禁止多个空格
+    "no-multi-spaces": "warn",
+    //在if、for等关键字后加空格
+    "keyword-spacing": ["warn", { "before": true }],
+    // json对象key后加空格
+    "key-spacing": ["error", { "afterColon": true }],
+    // 禁止行尾部空格
+    "no-trailing-spaces": "error",
+    // 对象的key是否需要双引号包裹
+    "quote-props": ["error", "as-needed"],
+    // 箭头函数的箭头两边留空白格
+    "arrow-spacing": ["warn", { "before": true, "after": true }],
+
+    /* 代码相关 */
+    "no-console": "warn",
+    "no-unused-vars": "error",
+    "eqeqeq": "error",
+    "sort-vars": "warn",
+    "no-alert": "error",
+    // 禁止有空函数
+    "no-empty-function": "error",
+    // 禁止var声明变量
+    "no-var": "warn",
+    // 尽可能使用const
+    "prefer-const": "warn",
+
+    /* 插件 */
+    // plugin:simple-import-sort
+    "sort-imports": "off",
+    "import/order": "off",
+    "simple-import-sort/imports": "error",
+    "simple-import-sort/exports": "error",
+
+    // plugin:import
+    "import/first": "error",
+    "import/newline-after-import": "error",
+    "import/no-duplicates": "error",
+
+    // plugin:react-hooks
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "warn"
   }
 }

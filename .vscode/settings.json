@@ -1,39 +1,49 @@
 {
   // 该文件作用于开发过程中
-  //   "files.autoSave": "afterDelay",
+  "files.autoSave": "off",
   "editor.formatOnSave": true,
+  "eslint.alwaysShowStatus": true,
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true
+    // 使用eslint-plugin-simple-import-sort处理import
+    // "source.organizeImports": true
   },
+  "editor.tabSize": 4,
+  "editor.defaultFormatter": "dbaeumer.vscode-eslint",
   "files.associations": {
     "*.js": "javascript",
     "*.jsx": "javascriptreact",
     "*.ts": "typescript",
-    "*.tsx": "typescriptreact"
+    "*.tsx": "typescriptreact",
+    "*.json": "jsonc",
+    ".eslintrc": "jsonc"
   },
   // eslint
   "eslint.workingDirectories": ["./src"],
   "eslint.run": "onSave",
   "eslint.format.enable": true,
   "eslint.lintTask.enable": true,
-  "prettier.tabWidth": 2,
   "eslint.validate": [
     "javascript",
     "javascriptreact",
     "typescript",
     "typescriptreact"
   ],
+  "[javascript]": {
+    "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+  },
+  "[javascriptreact]": {
+    "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+  },
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+  },
   //prettier
-  // "editor.defaultFormatter": "esbenp.prettier-vscode", // 指定使用 prettier 格式化代码,
-    "editor.defaultFormatter": "dbaeumer.vscode-eslint",
-    "eslint.alwaysShowStatus": true,
-  // "[javascript]": {
-  //   "editor.defaultFormatter": null
-  // },
-  // "[typescript]": {
-  //   "editor.defaultFormatter": null
-  // },
-  // "[typescriptreact]": {
-  //   "editor.defaultFormatter": "dbaeumer.vscode-eslint"
-  // }
+  "prettier.jsxBracketSameLine": true,
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
 }
