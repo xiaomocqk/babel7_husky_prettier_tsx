@@ -1,10 +1,10 @@
 import React from 'react';
 
 export const a = 1;
-const arr = [1, 2, 3].map((n) => n + 1)[(4, 5)].forEach((n) => n);
+const arr = [1, 2, 3].map((n) => n + 1)[(4, 5)].forEach(n => n);
 
 class Foo {
-  constructor () {
+  constructor() {
     // super()
   }
 }
@@ -14,7 +14,7 @@ const p = new Promise((resolve) => {
   }, 1000);
 });
 
-function App () {
+function App() {
   return (
     <>
       <div>this is a paragraph</div>

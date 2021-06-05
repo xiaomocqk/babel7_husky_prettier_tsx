@@ -2,7 +2,7 @@
   "root": true,
   "extends": ["eslint:recommended", "plugin:react/recommended"],
   "parser": "@typescript-eslint/parser",
-  "plugins": ["typescript", "simple-import-sort", "import", "react-hooks"],
+  "plugins": ["typescript", /*"simple-import-sort",*/ "import", "react-hooks"],
   "ignorePatterns": ["node_modules", "lib/**", "dist/**"],
   "env": {
     "browser": true,
@@ -38,7 +38,7 @@
     // 块级作用域'{}'内使用前后空格
     "block-spacing": "warn",
     "jsx-quotes": ["warn", "prefer-double"],
-    // 禁止多个空格
+    // 禁止连续多个空格
     "no-multi-spaces": "warn",
     //在if、for等关键字后加空格
     "keyword-spacing": ["warn", { "before": true }],
@@ -67,12 +67,26 @@
     "comma-dangle": ["warn", "always-multiline"],
     // 对运算符，如+-=添加空格
     "space-infix-ops": "warn",
-    // 对如s++不允许插入空格或自动整理s+++1
+    // 对如s++不允许插入空格或自动整理如count+++1
     "space-unary-ops": "warn",
     // 执行函数时不可有空格
     "no-spaced-func": "warn",
     // 访问对象属性前禁止空格
     "no-whitespace-before-property": "error",
+    // 链式调用换行
+    "newline-per-chained-call": "warn",
+    // 声明的最后一个变量后空一行
+    "padding-line-between-statements": [
+      "warn",
+      { "blankLine": "always", "prev": ["const", "let", "var"], "next": "*" },
+      {
+        "blankLine": "any",
+        "prev": ["const", "let", "var"],
+        "next": ["const", "let", "var"]
+      }
+    ],
+    // 空行最多不能超过1行
+    "no-multiple-empty-lines": [1, { "max": 1 }],
 
     /* 代码相关 */
     "no-console": "warn",
@@ -80,6 +94,8 @@
     "eqeqeq": "error",
     "sort-vars": "warn",
     "no-alert": "error",
+    // 禁止比较时使用NaN，只能用isNaN()
+    "use-isnan": "error",
     // 禁止有空函数
     "no-empty-function": "error",
     // 禁止var声明变量
@@ -91,7 +107,7 @@
     // 防止在数组中多次使用",,"
     "no-sparse-arrays": "error",
     // if-retrue就不要再写else-return
-    "no-else-return": "error",
+    "no-else-return": "warn",
     // async-await必须成对出现
     "require-await": "error",
     // 使用new Promise时传入的函数不可以是async-func
@@ -100,17 +116,66 @@
     "no-await-in-loop": "error",
     // 可选链操作符出错提醒
     "no-unsafe-optional-chaining": "error",
+    // 函数参数>3个时自动换行
+    "function-paren-newline": ["warn", { "minItems": 3 }],
+    // 箭头函数返回一个值时，若可以则简化去掉"return"
+    "arrow-body-style": ["warn", "as-needed"],
+    // 箭头函数的参数必须用"()"包裹
+    "arrow-parens": ["warn", "always"],
+    // 字符串拼接倾向于es字符反引号
+    "prefer-template": "warn",
+    // 单个文件允许的最大行数=300,不包括注释和空白行
+    "max-lines": ["warn", { "max": 300 }],
+    // 函数允许最多3个参数
+    "max-params": ["warn", 3],
+    // 禁止 if(true) if(1)
+    "no-constant-condition": "error",
+    // 禁止对象出现重复的key
+    "no-dupe-keys": "error",
+    // 浮点数不可以省略0，例如 .53 -> 0.53
+    "no-floating-decimal": "warn",
+    // 禁止与外层作用域同名的变量名
+    "no-shadow": "warn",
+    //禁止不必要的嵌套 var isYes = answer === 1 ? true : false;
+    "no-unneeded-ternary": 2,
+    // switch内必须有default
+    "default-case": "error",
+    //必须使用 if(){} 中的{}
+    "curly": ["warn", "all"],
+    //parseInt必须指定第二个参数
+    "radix": "error",
+    // return前空一行
+    "newline-before-return": "warn",
 
     /* 插件 */
     // plugin:simple-import-sort
     "sort-imports": "off",
-    "import/order": "off",
-    "simple-import-sort/imports": "error",
-    "simple-import-sort/exports": "error",
+    "import/order": [
+      "warn",
+      {
+        "groups": [
+          "builtin",
+          "external",
+          "internal",
+          "parent",
+          "sibling",
+          "index",
+          "object",
+          "type"
+        ],
+        // 不同模块类型间隔一行
+        "newlines-between": "always",
+        // 警告未引用的如import './index.css'
+        "warnOnUnassignedImports": true
+      }
+    ],
+    // "simple-import-sort/imports": "error",
+    // "simple-import-sort/exports": "error",
 
     // plugin:import
     "import/first": "error",
     "import/newline-after-import": "error",
+    // 不可以imoport多次同一个文件，但是允许import type A from 'a.ts'
     "import/no-duplicates": "error",
 
     // plugin:react-hooks
