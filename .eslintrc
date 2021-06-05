@@ -30,8 +30,13 @@
       { "allowTemplateLiterals": true, "avoidEscape": true }
     ],
     "semi": "warn",
+    // 分号前后不可有空格
+    "semi-spacing": "error",
     "indent": ["warn", 2],
+    // 注释符号后必须空格
     "spaced-comment": "warn",
+    // 块级作用域'{}'内使用前后空格
+    "block-spacing": "warn",
     "jsx-quotes": ["warn", "prefer-double"],
     // 禁止多个空格
     "no-multi-spaces": "warn",
@@ -42,9 +47,32 @@
     // 禁止行尾部空格
     "no-trailing-spaces": "error",
     // 对象的key是否需要双引号包裹
-    "quote-props": ["error", "as-needed"],
+    "quote-props": ["warn", "as-needed"],
     // 箭头函数的箭头两边留空白格
     "arrow-spacing": ["warn", { "before": true, "after": true }],
+    // 如if、function的左大括号"{"放在当前行
+    "brace-style": "warn",
+    // 如if、function的左大括号"{"前要有空格
+    "space-before-blocks": "warn",
+    // 声明函数时函数名与"("是否有空格
+    "space-before-function-paren": [
+      "warn",
+      { "anonymous": "always", "named": "never", "asyncArrow": "always" }
+    ],
+    // 函数的参数不能有空格
+    "space-in-parens": ["warn", "never"],
+    // ","后需要空格
+    "comma-spacing": ["warn", { "before": false, "after": true }],
+    // 数组、对象的最后一个值需要逗号
+    "comma-dangle": ["warn", "always-multiline"],
+    // 对运算符，如+-=添加空格
+    "space-infix-ops": "warn",
+    // 对如s++不允许插入空格或自动整理s+++1
+    "space-unary-ops": "warn",
+    // 执行函数时不可有空格
+    "no-spaced-func": "warn",
+    // 访问对象属性前禁止空格
+    "no-whitespace-before-property": "error",
 
     /* 代码相关 */
     "no-console": "warn",
@@ -58,6 +86,20 @@
     "no-var": "warn",
     // 尽可能使用const
     "prefer-const": "warn",
+    // new Promise不应有retrun任何值
+    "no-promise-executor-return": "warn",
+    // 防止在数组中多次使用",,"
+    "no-sparse-arrays": "error",
+    // if-retrue就不要再写else-return
+    "no-else-return": "error",
+    // async-await必须成对出现
+    "require-await": "error",
+    // 使用new Promise时传入的函数不可以是async-func
+    "no-async-promise-executor": "error",
+    // 禁止在for循环内使用await
+    "no-await-in-loop": "error",
+    // 可选链操作符出错提醒
+    "no-unsafe-optional-chaining": "error",
 
     /* 插件 */
     // plugin:simple-import-sort
