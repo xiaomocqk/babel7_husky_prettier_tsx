@@ -1,8 +1,12 @@
 {
   "root": true,
-  "extends": ["eslint:recommended", "plugin:react/recommended"],
   "parser": "@typescript-eslint/parser",
-  "plugins": ["typescript", /*"simple-import-sort",*/ "import", "react-hooks"],
+  "plugins": ["typescript", "import", "react-hooks"],
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:jsx-a11y/recommended"
+  ],
   "ignorePatterns": ["node_modules", "lib/**", "dist/**"],
   "env": {
     "browser": true,
@@ -32,7 +36,7 @@
     "semi": "warn",
     // 分号前后不可有空格
     "semi-spacing": "error",
-    "indent": ["warn", 2],
+    "indent": ["warn", 4],
     // 注释符号后必须空格
     "spaced-comment": "warn",
     // 块级作用域'{}'内使用前后空格
@@ -87,6 +91,8 @@
     ],
     // 空行最多不能超过1行
     "no-multiple-empty-lines": [1, { "max": 1 }],
+    // 对象key数量超过2个使，参数单独提到一行
+    "object-curly-newline": ["warn", { "multiline": true, "minProperties": 2 }],
 
     /* 代码相关 */
     "no-console": "warn",
@@ -146,9 +152,15 @@
     "radix": "error",
     // return前空一行
     "newline-before-return": "warn",
+    // 禁止不必要的括号
+    "no-extra-parens": "warn",
+    // 禁止在嵌套的块中出现变量声明或 function 声明
+    "no-inner-declarations": "error",
+    // 禁用 eval()
+    "no-eval": "error",
 
     /* 插件 */
-    // plugin:simple-import-sort
+    // plugin:import
     "sort-imports": "off",
     "import/order": [
       "warn",
@@ -169,10 +181,6 @@
         "warnOnUnassignedImports": true
       }
     ],
-    // "simple-import-sort/imports": "error",
-    // "simple-import-sort/exports": "error",
-
-    // plugin:import
     "import/first": "error",
     "import/newline-after-import": "error",
     // 不可以imoport多次同一个文件，但是允许import type A from 'a.ts'
