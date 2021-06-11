@@ -1,6 +1,7 @@
-import React, {
-    PureComponent, useCallback, useMemo, useState,
-} from 'react';
+import React, { PureComponent, useCallback, useMemo, useState } from 'react';
+import { Link } from 'react-router-dom';
+
+import useGlobal, { GlobalContext, globalState } from '../../store/useGlobal';
 
 const MemoChildC = React.memo(ChildC);
 
@@ -14,14 +15,20 @@ class PureChildF extends PureComponent {
 
 export default function Home() {
     return (
-        <Parent>
-            <ChildB />
-        </Parent>
+        <GlobalContext.Provider value={globalState}>
+            <Parent>
+                <ChildB />
+                <Link to="/about">链接</Link>
+            </Parent>
+        </GlobalContext.Provider>
     );
 }
 
 function Parent(props: { children: any }) {
     const { children } = props;
+    const globalState = useGlobal();
+
+    console.log('globalState', globalState);
     const [couter, setCouter] = useState(10);
     const UseMemoChildD = useMemo(() => ChildD, []);
     const UseCallbackChildE = useCallback(ChildE, []);

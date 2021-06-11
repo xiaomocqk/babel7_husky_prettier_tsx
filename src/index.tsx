@@ -1,8 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import Home from './components/Home';
+import App from './App';
 
-document.title = '123456789';
-
-ReactDOM.render(<Home />, document.querySelector('#app'));
+ReactDOM.render(<App />, document.querySelector('#app'));

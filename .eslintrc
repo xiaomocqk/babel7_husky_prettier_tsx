@@ -1,11 +1,12 @@
 {
   "root": true,
   "parser": "@typescript-eslint/parser",
-  "plugins": ["typescript", "import", "react-hooks"],
+  "plugins": ["import", "react-hooks"],
   "extends": [
     "eslint:recommended",
     "plugin:react/recommended",
-    "plugin:jsx-a11y/recommended"
+    "plugin:jsx-a11y/recommended",
+    "plugin:@typescript-eslint/recommended"
   ],
   "ignorePatterns": ["node_modules", "lib/**", "dist/**"],
   "env": {
@@ -36,7 +37,7 @@
     "semi": "warn",
     // 分号前后不可有空格
     "semi-spacing": "error",
-    "indent": ["warn", 4],
+    "indent": "off",
     // 注释符号后必须空格
     "spaced-comment": "warn",
     // 块级作用域'{}'内使用前后空格
@@ -92,7 +93,7 @@
     // 空行最多不能超过1行
     "no-multiple-empty-lines": [1, { "max": 1 }],
     // 对象key数量超过2个使，参数单独提到一行
-    "object-curly-newline": ["warn", { "multiline": true, "minProperties": 2 }],
+    // "object-curly-newline": ["warn", { "multiline": true, "minProperties": 2 }],
 
     /* 代码相关 */
     "no-console": "warn",
@@ -141,7 +142,7 @@
     // 浮点数不可以省略0，例如 .53 -> 0.53
     "no-floating-decimal": "warn",
     // 禁止与外层作用域同名的变量名
-    "no-shadow": "warn",
+    // "no-shadow": "warn",
     //禁止不必要的嵌套 var isYes = answer === 1 ? true : false;
     "no-unneeded-ternary": 2,
     // switch内必须有default

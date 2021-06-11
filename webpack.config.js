@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
 const path = require('path');
 
 const chalk = require('chalk');
@@ -37,8 +38,8 @@ module.exports = {
         noInfo: true,
         watchContentBase: true, // 当 html 文件发生变化时, 也可以触发浏览器刷新了
         after(
-            EventEmitter, Server, Compiler,
-        ) {
+EventEmitter, Server, Compiler,
+) {
             Compiler;
             console.log(chalk.green(`√ Service is listening at: http://localhost:${Server.options.port}/`));
         },
